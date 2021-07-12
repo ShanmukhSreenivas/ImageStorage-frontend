@@ -12,6 +12,12 @@ target 'imagestorage' do
     :hermes_enabled => false
   )
 
+  pod 'RNShare', :path => '../node_modules/react-native-share'
+
+  pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
+
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
   target 'imagestorageTests' do
     inherit! :complete
     # Pods for testing

@@ -4,10 +4,11 @@ import AppScreen from "../components/AppScreen";
 import Share from 'react-native-share';
 
 function PictureScreen({ route, navigation }) {
-    const { imageurl } = route.params
+    const { imagename, imageurl } = route.params
     const myCustomShare = async () => {
         const shareOptions = {
-            message: imageurl,
+            message: imagename,
+            url: imageurl
         }
         try {
             const ShareResponse = await Share.open(shareOptions);
@@ -17,7 +18,7 @@ function PictureScreen({ route, navigation }) {
     }
     return (
         <AppScreen>
-        <TouchableOpacity /*onPress={this.onclick} disabled={this.state.disabled}*/>
+        <TouchableOpacity disabled={true}>
         <View style={styles.container}>
           <View style={styles.card}>
             <Image source={{ uri: imageurl }} style={styles.image} />
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#e322cc"
     },
     buttonText: {
-        color: "fff",
+        color: "#fff",
         textTransform: "uppercase",
         fontWeight: "200",
         letterSpacing: 3,

@@ -1,7 +1,7 @@
 import React from "react";
 import { useFormikContext } from "formik";
 
-import AppListImageInput from "../AppListImageInput";
+import AppListImageInput from "./AppListImageInput";
 import FormErrorMessage from "./FormErrorMessage";
 
 function AppFormImagePicker({ name }) {

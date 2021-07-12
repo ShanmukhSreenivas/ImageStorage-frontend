@@ -1,11 +1,45 @@
 import React from 'react';
-import {Image, View, StyleSheet, FlatList,TouchableOpacity } from "react-native";
+import {Image, View, StyleSheet, FlatList,TouchableOpacity, AsyncStorage } from "react-native";
 import AppScreen from "../components/AppScreen";
 import ListItemSeparator from "../components/ItemSeparatorComponent";
+import axios from 'axios';
 
 
-function HomeScreen({ route,navigation }) {
-    const { email } = route.params
+
+function HomeScreen({ navigation }) {
+
+    const [items, setItems] = useState({items: []});
+    const userId = AsyncStorage.getItem('userId',(err,result) => {
+      console.log(result);
+    })
+    useEffect( () => {
+      const fetchData = async () => {
+        await axios({
+          url: Constants.GRAPHQL_API,
+          method: 'post',
+          data: {
+          query: `
+          query{
+              userPictures(userId:"${userId}"){
+                id
+                userId
+                imagename
+                imageurl
+            }
+          }
+          `
+          }
+        })
+        .then(res => {
+          const result = res.data.data;
+          setItems({items: result})
+        })
+        .catch(err => {
+          console.log(err.message);
+        });
+      }
+      fetchData();
+    })
     return (
         <AppScreen>
         <FlatList
@@ -15,8 +49,8 @@ function HomeScreen({ route,navigation }) {
           ItemSeparatorComponent={ListItemSeparator}
           renderItem={({ item }) => (
             <TouchableOpacity  onPress={() => {
-              navigation.navigate("Picture" , {imageurl : item.imageurl});
-            }} disabled={this.state.disabled} >
+              navigation.navigate("Picture" , {imagename: item.imagename,imageurl : item.imageurl});
+            }} disabled= {false} >
               <View style={styles.container}>
                <View style={styles.card}>
                 <Image source={{ uri: item.imageurl}} style={styles.image} />
@@ -48,7 +82,7 @@ const styles = StyleSheet.create({
       },
       card: {
         borderRadius: 20,
-        backgroundColor: "fff",
+        backgroundColor: "#fff",
         marginBottom: 20,
         overflow: "hidden",
       },
@@ -63,7 +97,7 @@ const styles = StyleSheet.create({
         marginBottom: 7,
       },
       price: {
-        color: colors.secondary,
+        color: "#4ecdc4",
         fontWeight: "bold",
       },
   

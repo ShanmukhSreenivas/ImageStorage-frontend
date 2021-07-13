@@ -50,7 +50,7 @@ const AppNavigator = () => (
         <Stack.Screen name="Login" component={LoginScreen} options={{headerShown : false}}/>
         <Stack.Screen name="SignUp" component={SignUpScreen} options={{headerShown : false}}/>
         <Stack.Screen name="Home" component={HomeScreen} options={{title: 'Home',headerLeft: null}}/>
-        <Stack.Screen name="UploadImage" component={UploadImageScreen} />
+        <Stack.Screen name="UploadImage" component={UploadImageScreen} options={{title: "Upload Image",headerLeft: null}}/>
         <Stack.Screen name="Picture" component={PictureScreen} initialParams={{ imagename: "sample_image", imageurl: "./assets/borrowit-logo.png" }}/>
       </Stack.Navigator>
     </NavigationContainer> 

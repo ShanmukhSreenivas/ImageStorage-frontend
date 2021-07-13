@@ -59,8 +59,8 @@ $ npx reacct-native run-ios
 
 ## Screen Shots of the Application
 
-<p justify-content="space-between"><a><img src="./assets/Login.jpg" width="150" height="400" margin-right="5"></a><a><img src="./assets/SignUp.jpg" width="150" height="400" margin-left="5" margin-right="5"></a><a><img src="./assets/Home.jpg" width="150" height="400" margin-left="5" margin-right="5"></a><a><img src="./assets/Picture.jpg" width="150" height="400" margin-left="5"></a></p>
-<p justify-content="space-between"><a><img src="./assets/Upload-image.jpg" width="150" height="400" margin-right="5"></a><a><img src="./assets/Image-Upload.jpg" width="150" height="400" margin-left="5" margin-right="5"></a><a><img src="./assets/Home-Upload.jpg" width="150" height="400" margin-left="5" margin-right="5"></a><a><img src="./assets/Share.jpg" width="150" height="400" margin-left="5"></a></p>
+<p justify-content="space-between"><a><img src="./assets/Login.jpg" width="180" height="350" margin-right="5"></a><a><img src="./assets/SignUp.jpg" width="180" height="350" margin-left="5" margin-right="5"></a><a><img src="./assets/Home.jpg" width="180" height="350" margin-left="5" margin-right="5"></a><a><img src="./assets/Picture.jpg" width="180" height="350" margin-left="5"></a></p>
+<p justify-content="space-between"><a><img src="./assets/Upload-image.jpg" width="180" height="350" margin-right="5"></a><a><img src="./assets/Image-Upload.jpg" width="180" height="350" margin-left="5" margin-right="5"></a><a><img src="./assets/Home-Upload.jpg" width="180" height="350" margin-left="5" margin-right="5"></a><a><img src="./assets/Share.jpg" width="180" height="350" margin-left="5"></a></p>
 
 ## Contributing
 

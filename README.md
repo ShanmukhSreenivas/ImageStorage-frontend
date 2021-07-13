@@ -32,7 +32,7 @@ Following versions were used in the development of this project:
 * Run the following commands in the terminal/console window in the project directory:
 
 ```bash
-$ cd ImageStorage-backend
+$ cd ImageStorage-frontend
 
 $ npm install
 ```
@@ -57,10 +57,10 @@ $ cd ImageStorage-frontend
 $ npx reacct-native run-ios
 ```
 
-## Screen Shots of the Application
+## ScreenShots of the Application
 
-<p justify-content="space-between"><a><img src="./assets/Login.jpg" width="240" height="400" margin-right="5"></a><a><img src="./assets/SignUp.jpg" width="240" height="400" margin-left="5" margin-right="5"></a><a><img src="./assets/Home.jpg" width="240" height="400" margin-left="5" margin-right="5"></a><a><img src="./assets/Picture.jpg" width="240" height="400" margin-left="5"></a></p>
-<p justify-content="space-between"><a><img src="./assets/Upload-image.jpg" width="240" height="400" margin-right="5"></a><a><img src="./assets/Image-Upload.jpg" width="240" height="400" margin-left="5" margin-right="5"></a><a><img src="./assets/Home-Upload.jpg" width="240" height="400" margin-left="5" margin-right="5"></a><a><img src="./assets/Share.jpg" width="240" height="400" margin-left="5"></a></p>
+<p justify-content="space-between"><a><img src="./assets/Login.jpg" width="200" height="350" margin-right="5"></a><a><img src="./assets/SignUp.jpg" width="200" height="350" margin-left="5" margin-right="5"></a><a><img src="./assets/Home.jpg" width="200" height="350" margin-left="5" margin-right="5"></a><a><img src="./assets/Picture.jpg" width="200" height="350" margin-left="5"></a></p>
+<p justify-content="space-between"><a><img src="./assets/Upload-image.jpg" width="200" height="350" margin-right="5"></a><a><img src="./assets/Image-Upload.jpg" width="200" height="350" margin-left="5" margin-right="5"></a><a><img src="./assets/Home-upload.jpg" width="200" height="350" margin-left="5" margin-right="5"></a><a><img src="./assets/Share.jpg" width="200" height="350" margin-left="5"></a></p>
 
 ## Contributing
 

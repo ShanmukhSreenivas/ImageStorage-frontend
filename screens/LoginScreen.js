@@ -1,9 +1,9 @@
 import AppButton from '../components/AppButton';
 import React , {useState ,useEffect} from 'react'
 import axios from 'axios';
-import { Alert , StyleSheet , Image, TextInput , AsyncStorage ,SafeAreaView} from 'react-native'
+import { Alert , StyleSheet , Image, TextInput , AsyncStorage ,SafeAreaView, TouchableOpacity} from 'react-native'
 import * as Constants from '../constants/constants' 
-
+import AppText from '../components/AppText';
 
 function LoginScreen({ navigation }) {
 
@@ -58,6 +58,17 @@ function onLogin () {
         <TextInput secureTextEntry={true} onChangeText={(password) => setPassword(password)} style={styles.passwordBar} placeholder="Password" />
         <AppButton title="Login" color="#e322cc" onPress={onLogin} />
         <AppButton title="Sign up" color="#e322cc" onPress={() => { navigation.navigate('SignUp') } } />
+        <TouchableOpacity
+                  style={[styles.buttonContainer]}
+                  /* onPress={captureImage} */>
+                  <AppText style={styles.text}>Login With Google</AppText>
+        </TouchableOpacity>
+        <TouchableOpacity
+                  style={[styles.buttonContainer]}
+                  /* onPress={captureImage} */>
+                  <AppText style={styles.text}>Login With Facebook</AppText>
+        </TouchableOpacity>
+
     </SafeAreaView>
     );
 }
@@ -87,6 +98,21 @@ const styles = StyleSheet.create({
         borderBottomColor: "grey",
         backgroundColor: "#fff",
     },
+    buttonContainer: {
+        width: "80%",
+        height:40,
+        borderRadius:5,
+        marginTop:35,
+        justifyContent:"center",
+        alignItems:'center',
+        backgroundColor:"#DCDCDC"
+    },
+    text:{
+        color: "#000000",
+        fontWeight: "200",
+        fontSize: 12,
+        letterSpacing: 2,
+    }
 })
 
 

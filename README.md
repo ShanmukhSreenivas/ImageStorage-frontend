@@ -32,7 +32,7 @@ Following versions were used in the development of this project:
 * Run the following commands in the terminal/console window in the project directory:
 
 ```bash
-$ cd ImageStorage-backend
+$ cd ImageStorage-frontend
 
 $ npm install
 ```

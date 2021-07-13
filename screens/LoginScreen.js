@@ -15,6 +15,12 @@ function LoginScreen({ navigation }) {
 function onLogin () {
  
     const loguser = async () => {
+        if(email === ''){
+            return Alert.alert("Invalid", "Enter the correct email", [
+                { text: "Go Back", onPress: () => navigation.navigate('Login') },
+              ]
+            )
+        }
         await axios({
             url: Constants.GRAPHQL_API,
             method: 'post',
@@ -48,8 +54,8 @@ function onLogin () {
     return (
         <SafeAreaView style={styles.window}>
         <Image source={require("../assets/image-storage-logo.png")} />
-        <TextInput /* ref="Email" */ onChangeText={(email) => setEmail( email ) } style={styles.userNameBar} placeholder="Username" />
-        <TextInput secureTextEntry={true} /* ref="password" */ onChangeText={(password) => setPassword(password)} style={styles.passwordBar} placeholder="Password" />
+        <TextInput onChangeText={(email) => setEmail( email ) } style={styles.userNameBar} placeholder="Username" />
+        <TextInput secureTextEntry={true} onChangeText={(password) => setPassword(password)} style={styles.passwordBar} placeholder="Password" />
         <AppButton title="Login" color="#e322cc" onPress={onLogin} />
         <AppButton title="Sign up" color="#e322cc" onPress={() => { navigation.navigate('SignUp') } } />
     </SafeAreaView>
@@ -65,30 +71,20 @@ const styles = StyleSheet.create({
     },
     userNameBar: {
         width: '60%',
-        //position: "absolute",
-        //top: 95,
         height: 40,
         paddingLeft: 20,
         marginBottom: 30,
-        //borderRadius: 20,
-        //borderWidth: 1,
         borderBottomWidth: 2,
         borderBottomColor: "grey",
-        //borderColor: "grey",
         backgroundColor: "#fff",
     },
     passwordBar: {
         width: '60%',
-        //position: "absolute",
-        //top: 95,
         marginBottom: 20,
         height: 40,
         paddingLeft: 20,
-        //borderRadius: 20,
-        //borderWidth: 1,
         borderBottomWidth: 2,
         borderBottomColor: "grey",
-        //borderColor: "grey",
         backgroundColor: "#fff",
     },
 })

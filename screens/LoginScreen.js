@@ -60,7 +60,7 @@ function onLogin () {
             query: `
             mutation{
                 authGoogle(input : {
-                    accessToken: "ya29.a0ARrdaM9i09ny91ISZ27LDivno3ixOH8g2lXsNqkkZxUgR6yXWe9a3cY1ZZQh5xP5bcw9OcmlzxoRAaBbXDp1wUM_FZASiSK1PxDkbMNWvjAWAt-KZD-j1UPIP_5pslGJB8m_H_HdXjKgGzjs0gWs3UtlI97Y"
+                    accessToken: "ya29.a0ARrdaM_24JxYw7uZ60bwX23Fo59rbNPDdF-q0DgCAzWoXz3dHTlNyMMvQk-DZ3gI_EL1C6N4GilI9Ya1wFiftcf5-2DH7rEJ1BAxTQcub8przypzlfLLhYCuTWqwQAzAJvoKUI96xIGBOjJz-UqbfpCitM10"
                 }){
                 userId
                 token
@@ -94,7 +94,7 @@ function onLogin () {
             query: `
             mutation{
                 authFacebook(input : {
-                    accessToken: "EAADukZCWniyYBACFrCzXHPfOK0ZCR5eonN55qveKMI2Y5Xhg7mzt9TjVZCn4c74CyABo5XjNb9oVTA94P12GhQV4pZBD0jW5lNNkF7bVbshaDng2wtVv4v8edjbJqQQCg4GZB5NjZA9ZCdl2qjnxLOYTJLwCqreeu8MmVI8IjWERSfFMa4NgajiHY0prPSHEPXYuUebdTVaYrrYVzSqago9"
+                    accessToken: "EAADukZCWniyYBAHLh1zZB7ZB4ZASrIK40kGctv7J1yaj5oVfyQgZBL8AJbL8wxNkqztZAdqYgJJZC8oHWmJ5xN7BE1XZBopOS1UQyxOoyrq6Q0asO2Jb1bOZAR9d8AEP3vZAYs7X3fyT9ZBu4gZBRk9yxZARxUi1pRFQZB5eR2X4PWXEBMXSt6JZBa9Nt1cwx7xklbzSnrLooSCrq08DAZDZD"
                 }){
                     userId
                     token

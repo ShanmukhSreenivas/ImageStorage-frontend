@@ -23,7 +23,7 @@ function UploadImageScreen({ navigation }) {
         height: 400,
         cropping: true,
         includeBase64: true,
-        compressImageQuality: 0.5
+        compressImageQuality: 0.8
       }).then(image => {
         setImages(image);
       });
@@ -35,7 +35,7 @@ function UploadImageScreen({ navigation }) {
         height: 400,
         cropping: true,
         includeBase64: true,
-        compressImageQuality: 0.5
+        compressImageQuality: 0.8
       }).then(image => {
         setImages(image);
       });

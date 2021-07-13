@@ -10,7 +10,7 @@ function WelcomeScreen({ navigation }) {
     return (
         <SafeAreaView style={styles.window}>
             <TouchableOpacity style={styles.whole} onPress={() => { navigation.navigate('Login') }}>
-                <Image source={require("../assets/borrowit-logo.png")} />
+                <Image source={require("../assets/image-storage-logo.png")} />
             </TouchableOpacity>
         </SafeAreaView>
     );

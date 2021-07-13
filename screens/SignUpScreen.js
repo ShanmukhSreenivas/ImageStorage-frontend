@@ -28,12 +28,11 @@ function SignUpScreen({ navigation }) {
             .then(res => {
              console.log(res.data);
              AsyncStorage.setItem('userId', res.data.data.createUser.id )
+             navigation.navigate('Home');
             })
             .catch(err => {
              console.log(err.message);
             });
-    
-            navigation.navigate('Home');
       }
     
 

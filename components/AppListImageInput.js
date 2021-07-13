@@ -16,7 +16,7 @@ function AppListImageInput({ images = [], onRemovedImage, onAddImage }) {
           {images.map((image) => (
             <View key={image.uri} style={styles.list}>
               <ImageInput
-                imageUri={image.uri}
+                image={image}
                 onChangeImage={() => onRemovedImage(image)}
               />
             </View>

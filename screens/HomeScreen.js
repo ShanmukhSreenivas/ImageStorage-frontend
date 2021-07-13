@@ -1,20 +1,27 @@
-import React from 'react';
-import {Image, View, StyleSheet, FlatList,TouchableOpacity, AsyncStorage } from "react-native";
-import AppScreen from "../components/AppScreen";
+import React ,{ useState, useEffect }from 'react';
+import {Image, View, StyleSheet, FlatList,TouchableOpacity, AsyncStorage, SafeAreaView } from "react-native";
 import ListItemSeparator from "../components/ItemSeparatorComponent";
 import axios from 'axios';
+import * as Constants from '../constants/constants'
 
 
 
 function HomeScreen({ navigation }) {
 
+    const [userId, setUserId] = useState('');
     const [items, setItems] = useState({items: []});
-    const userId = AsyncStorage.getItem('userId',(err,result) => {
-      console.log(result);
-    })
+    const [loading, setLoading] = useState(true);
+
+    const getUserId = async () => {AsyncStorage.getItem('userId',(err,result) => {
+          setUserId(result);
+        })
+      }
+
     useEffect( () => {
-      const fetchData = async () => {
-        await axios({
+
+      getUserId();
+      const fetchData = () => {
+         axios({
           url: Constants.GRAPHQL_API,
           method: 'post',
           data: {
@@ -32,7 +39,7 @@ function HomeScreen({ navigation }) {
         })
         .then(res => {
           const result = res.data.data;
-          setItems({items: result})
+          setItems({items: result.userPictures})
         })
         .catch(err => {
           console.log(err.message);
@@ -40,12 +47,13 @@ function HomeScreen({ navigation }) {
       }
       fetchData();
     })
+    
     return (
-        <AppScreen>
+      <SafeAreaView style={styles.window}>
         <FlatList
-          data={items}
+          data={items.items}
           showsVerticalScrollIndicator={false}
-          keyExtractor={(item) => item.id.toString()}
+          keyExtractor={(item) => item.id}
           ItemSeparatorComponent={ListItemSeparator}
           renderItem={({ item }) => (
             <TouchableOpacity  onPress={() => {
@@ -53,16 +61,18 @@ function HomeScreen({ navigation }) {
             }} disabled= {false} >
               <View style={styles.container}>
                <View style={styles.card}>
-                <Image source={{ uri: item.imageurl}} style={styles.image} />
+                <Image source={{ uri: item.imageurl}} style={styles.image} resizeMode='contain'/>
                 </View>
               </View>
             </TouchableOpacity>
               )}
               />
-            <TouchableOpacity onPress={() => { navigation.navigate('UploadImage') }}>
-                <Image style={styles.postIcon} source={require("../assets/upload.png")} />
-            </TouchableOpacity>
-        </AppScreen>            
+            <View style={styles.taskBar}>
+                  <TouchableOpacity onPress={() => { navigation.navigate('UploadImage') }}>
+                      <Image style={styles.postIcon} source={require("../assets/upload.png")} />
+                  </TouchableOpacity>
+            </View>
+        </SafeAreaView>
     );
 }
 
@@ -70,7 +80,7 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
     container: {
-        shadowColor: "#DCDCDC",
+        shadowColor: "#fff",
         shadowOffset: {
           width: 3,
           height: 3,
@@ -79,26 +89,33 @@ const styles = StyleSheet.create({
         shadowRadius: 3,
         padding: 15,
         paddingVertical: 5,
+        width: "95%"
       },
       card: {
-        borderRadius: 20,
+        borderRadius: 2,
         backgroundColor: "#fff",
         marginBottom: 20,
-        overflow: "hidden",
+        marginLeft:35
+        //overflow: "hidden",
       },
       image: {
-        width: "100%",
-        height: 200,
+        width:300,
+        height:400,
       },
       detailsContainer: {
         padding: 20,
       },
-      title: {
-        marginBottom: 7,
-      },
-      price: {
-        color: "#4ecdc4",
-        fontWeight: "bold",
-      },
-  
+      taskBar: {
+        backgroundColor: "#fff",
+        width: "100%",
+        height: 65,
+        flexDirection: "row",
+        alignItems: "flex-end",
+        justifyContent: "space-around",
+        paddingBottom: 10
+    },
+    window: {
+      flex: 1,
+      backgroundColor: "#fff",
+  }, 
 })

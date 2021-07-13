@@ -8,37 +8,39 @@ import * as Constants from '../constants/constants'
 function LoginScreen({ navigation }) {
 
 
-    const [ email , setEmail] = useState('')
-    const [password , setPassword] = useState('')
+    const [ email , setEmail ] = useState('')
+    const [ password , setPassword ] = useState('')
  
 
-function onLogin() {
+function onLogin () {
  
-    axios({
-        url: Constants.GRAPHQL_API,
-        method: 'post',
-        data: {
-         query: `
-         query{
-            login(email:"${email}",password:"${password}"){
-            userId
-            token
+    const loguser = async () => {
+        await axios({
+            url: Constants.GRAPHQL_API,
+            method: 'post',
+            data: {
+            query: `
+            query{
+                login(email:"${email}",password:"${password}"){
+                userId
+                token
+                }
             }
-         }
-         `
-        }
-       })
-        .then(res => {
-         console.log(JSON.stringify(res.data));
-         AsyncStorage.setItem('userId', res.data.data.login.userId )
-
-         navigation.navigate('Home')
-
+            `
+            }
         })
-        .catch(err => {
-         console.log(err.message);
-        });
-    
+            .then(res => {
+            console.log(JSON.stringify(res.data));
+            AsyncStorage.setItem('userId', res.data.data.login.userId)
+
+            navigation.navigate('Home');
+
+            })
+            .catch(err => {
+            console.log(err.message);
+            });
+    }
+    loguser();
   }
 
 
@@ -46,10 +48,10 @@ function onLogin() {
     return (
         <SafeAreaView style={styles.window}>
         <Image source={require("../assets/image-storage-logo.png")} />
-        <TextInput ref="Email" onChangeText={(email) => setEmail( email ) } style={styles.userNameBar} placeholder="Username" />
-        <TextInput secureTextEntry={true} ref="password" onChangeText={(password) => setPassword(password)} style={styles.passwordBar} placeholder="Password" />
+        <TextInput /* ref="Email" */ onChangeText={(email) => setEmail( email ) } style={styles.userNameBar} placeholder="Username" />
+        <TextInput secureTextEntry={true} /* ref="password" */ onChangeText={(password) => setPassword(password)} style={styles.passwordBar} placeholder="Password" />
         <AppButton title="Login" color="#e322cc" onPress={onLogin} />
-        <AppButton title="Sign up" color="#e322cc" onPress={() => { navigation.navigate('Signup') } } />
+        <AppButton title="Sign up" color="#e322cc" onPress={() => { navigation.navigate('SignUp') } } />
     </SafeAreaView>
     );
 }
@@ -89,7 +91,6 @@ const styles = StyleSheet.create({
         //borderColor: "grey",
         backgroundColor: "#fff",
     },
-    
 })
 
 

@@ -6,20 +6,15 @@ import {
   TouchableWithoutFeedback,
   Alert,
 } from "react-native";
-import * as ImagePicker from "react-native-image-picker";
+import * as ImagePicker from 'react-native-image-picker'
 
 
 function ImageInput({ imageUri, onChangeImage }) {
+
   const [didMount, setDidMount] = useState(false);
 
-/*   const requestPermission = async () => {
-    const { granted } = await ImagePicker.requestCameraRollPermissionsAsync();
-    if (!granted)
-      alert("You need to enable permission go to setting and enable it");
-  };
- */
+
   useEffect(() => {
-//    requestPermission();
 
     setDidMount(true);
     return () => setDidMount(false);
@@ -39,28 +34,28 @@ function ImageInput({ imageUri, onChangeImage }) {
 
   const selectImage = async () => {
     try {
-      const result = await ImagePicker.launchImageLibrary({
+    await ImagePicker.launchImageLibraryAsync({
         mediaType: 'photo',
-        maxWidth: 300,
-        maxHeight: 550,
-        quality: 1,
+        quality: 0.5,
+      },(response)=>{
+        onChangeImage(response)
       });
-      if (!result.cancelled) onChangeImage(result);
     } catch (error) {
       console.log("Error reading image", error);
     }
   };
 
+
   return (
-    <TouchableWithoutFeedback onPress={handlePress}>
+      <TouchableWithoutFeedback onPress={handlePress}>
       <View style={styles.container}>
         {!imageUri ? (
-          <Image source={require("../assets/camera-icon.png")} style={styles.icon} />
-        ) : (
+                <Image source={require("../assets/camera-icon.png")} style={styles.icon} />
+                ) : (
           <Image source={{ uri: imageUri }} style={styles.image} />
         )}
       </View>
-    </TouchableWithoutFeedback>
+      </TouchableWithoutFeedback>
   );
 }
 

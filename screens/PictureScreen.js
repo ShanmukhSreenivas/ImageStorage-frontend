@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, View, StyleSheet, TouchableOpacity } from "react-native";
+import {Image, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from "react-native";
 import AppScreen from "../components/AppScreen";
 import Share from 'react-native-share';
 
@@ -7,7 +7,6 @@ function PictureScreen({ route, navigation }) {
     const { imagename, imageurl } = route.params
     const myCustomShare = async () => {
         const shareOptions = {
-            message: imagename,
             url: imageurl
         }
         try {
@@ -16,26 +15,38 @@ function PictureScreen({ route, navigation }) {
             throw new Error(error)
         }
     }
+    const find_dimesions = (layout) => {
+      const {x, y, width, height} = layout;
+      console.warn(x);
+      console.warn(y);
+      console.warn(width);
+      console.warn(height);
+    }
     return (
-        <AppScreen>
+      <SafeAreaView style={styles.window}>
         <TouchableOpacity disabled={true}>
-        <View style={styles.container}>
+        <View style={styles.container} onLayout={(event) => { find_dimesions(event.nativeEvent.layout) }}>
           <View style={styles.card}>
-            <Image source={{ uri: imageurl }} style={styles.image} />
+            <Image source={{ uri: imageurl }} style={styles.image} resizeMode='contain'/>
           </View>
         </View>
       </TouchableOpacity>
       <TouchableOpacity style={styles.buttonContainer}  onPress={myCustomShare} >
             <Text style={styles.buttonText}>Share</Text>
       </TouchableOpacity>
-      </AppScreen>
+      </SafeAreaView>
     );
 }
 
 export default PictureScreen;
 
 const styles = StyleSheet.create({
-      container: {
+
+  window:{
+    flex: 1,
+    backgroundColor: "#fff",
+},
+     container: {
         shadowColor: "#DCDCDC",
         shadowOffset: {
           width: 3,
@@ -45,18 +56,22 @@ const styles = StyleSheet.create({
         shadowRadius: 3,
         padding: 15,
         paddingVertical: 5,
+        width: "95%"
       },
       card: {
-        borderRadius: 20,
+        borderRadius: 2,
         backgroundColor: "#fff",
         marginBottom: 20,
-        overflow: "hidden",
+        marginLeft:40
       },
       image: {
-        width: "100%",
-        height: 200,
+        width:300,
+        height:400,
       },
-      buttonContainer: {
+       buttonContainer: {
+        position: "absolute",
+        top: 450,
+        left:80,
         width: "60%",
         height: 50,
         marginTop: 35,
@@ -65,10 +80,14 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         backgroundColor: "#e322cc"
     },
+    
+
     buttonText: {
         color: "#fff",
         textTransform: "uppercase",
         fontWeight: "200",
         letterSpacing: 3,
     },
+ 
+  
 })

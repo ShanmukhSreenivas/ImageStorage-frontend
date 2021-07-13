@@ -49,6 +49,73 @@ function onLogin () {
     loguser();
   }
 
+  function googleLogin () {
+ 
+    const loguser = async () => {
+
+        await axios({
+            url: Constants.GRAPHQL_API,
+            method: 'post',
+            data: {
+            query: `
+            mutation{
+                authGoogle(input : {
+                    accessToken: "ya29.a0ARrdaM9i09ny91ISZ27LDivno3ixOH8g2lXsNqkkZxUgR6yXWe9a3cY1ZZQh5xP5bcw9OcmlzxoRAaBbXDp1wUM_FZASiSK1PxDkbMNWvjAWAt-KZD-j1UPIP_5pslGJB8m_H_HdXjKgGzjs0gWs3UtlI97Y"
+                }){
+                userId
+                token
+                }
+            }
+            `
+            }
+        })
+            .then(res => {
+            console.log(JSON.stringify(res.data));
+            AsyncStorage.setItem('userId', res.data.data.authGoogle.userId)
+
+            navigation.navigate('Home');
+
+            })
+            .catch(err => {
+            console.log(err.message);
+            });
+    }
+    loguser();
+  }
+
+  function facebookLogin () {
+ 
+    const loguser = async () => {
+
+        await axios({
+            url: Constants.GRAPHQL_API,
+            method: 'post',
+            data: {
+            query: `
+            mutation{
+                authFacebook(input : {
+                    accessToken: "EAADukZCWniyYBACFrCzXHPfOK0ZCR5eonN55qveKMI2Y5Xhg7mzt9TjVZCn4c74CyABo5XjNb9oVTA94P12GhQV4pZBD0jW5lNNkF7bVbshaDng2wtVv4v8edjbJqQQCg4GZB5NjZA9ZCdl2qjnxLOYTJLwCqreeu8MmVI8IjWERSfFMa4NgajiHY0prPSHEPXYuUebdTVaYrrYVzSqago9"
+                }){
+                    userId
+                    token
+                }
+            }
+            `
+            }
+        })
+            .then(res => {
+            console.log(JSON.stringify(res.data));
+            AsyncStorage.setItem('userId', res.data.data.authFacebook.userId)
+
+            navigation.navigate('Home');
+
+            })
+            .catch(err => {
+            console.log(err.message);
+            });
+    }
+    loguser();
+  }
 
     
     return (
@@ -60,12 +127,12 @@ function onLogin () {
         <AppButton title="Sign up" color="#e322cc" onPress={() => { navigation.navigate('SignUp') } } />
         <TouchableOpacity
                   style={[styles.buttonContainer]}
-                  /* onPress={captureImage} */>
+                   onPress={googleLogin} >
                   <AppText style={styles.text}>Login With Google</AppText>
         </TouchableOpacity>
         <TouchableOpacity
                   style={[styles.buttonContainer]}
-                  /* onPress={captureImage} */>
+                    onPress={facebookLogin} >
                   <AppText style={styles.text}>Login With Facebook</AppText>
         </TouchableOpacity>
 

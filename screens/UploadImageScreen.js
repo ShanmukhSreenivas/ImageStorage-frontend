@@ -93,8 +93,8 @@ function UploadImageScreen({ navigation }) {
             <SafeAreaView style={{flex: 1}}>
               <View style={styles.container}>
                 <Image
-                  source={{uri: images.path}}
-                  style={styles.imageStyle}
+                source={{uri: images.path}}
+                style={styles.imageStyle}
                 />
                 <TouchableOpacity
                   style={[styles.buttonContainer, { backgroundColor: "#e322cc" }]}

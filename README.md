@@ -59,7 +59,7 @@ $ npx reacct-native run-ios
 
 ## Screen Shots of the Application
 
-<p><a><img src="./assets/Login.jpg" width="500" height="1000"></a><a><img src="./assets/SignUp.jpg" width="500" height="1000"></a><a><img src="./assets/Home.png" width="500" height="1000"></a><a><img src="./assets/Picture.png" width="500" height="1000"></a></p>
+<p><a><img src="./assets/Login.jpg" width="250" height="500"></a><a><img src="./assets/SignUp.jpg" width="250" height="500"></a><a><img src="./assets/Home.png" width="250" height="500"></a><a><img src="./assets/Picture.png" width="250" height="500"></a></p>
 <p><a><img src="./assets/Upload-image.jpg"></a><a><img src="./assets/Image-Upload.jpg"></a><a><img src="./assets/Home_Upload.png"></a><a><img src="./assets/Share.png"></a></p>
 
 ## Contributing

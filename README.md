@@ -59,8 +59,8 @@ $ npx reacct-native run-ios
 
 ## Screen Shots of the Application
 
-<p align="center"><a><img src="./assets/Login.jpg"></a><a><img src="./assets/SignUp.jpg"></a><a><img src="./assets/Home.png"></a><a><img src="./assets/Picture.png"></a></p>
-<p align="center"><a><img src="./assets/Upload-image.jpg"></a><a><img src="./assets/Image-Upload.jpg"></a><a><img src="./assets/Home_Upload.png"></a><a><img src="./assets/Share.png"></a></p>
+<p><a><img src="./assets/Login.jpg"></a><a><img src="./assets/SignUp.jpg"></a><a><img src="./assets/Home.png"></a><a><img src="./assets/Picture.png"></a></p>
+<p><a><img src="./assets/Upload-image.jpg"></a><a><img src="./assets/Image-Upload.jpg"></a><a><img src="./assets/Home_Upload.png"></a><a><img src="./assets/Share.png"></a></p>
 
 ## Contributing
 

@@ -59,8 +59,8 @@ $ npx reacct-native run-ios
 
 ## ScreenShots of the Application
 
-<p align="center"><a><img src="./assets/Login.jpg" width="200" height="350" margin-right="5"></a><a>  </a><a><img src="./assets/SignUp.jpg" width="200" height="350" margin-left="5" margin-right="5"></a><a><img src="./assets/Home.jpg" width="200" height="350" margin-left="5" margin-right="5"></a><a><img src="./assets/Picture.jpg" width="200" height="350" margin-left="5"></a></p>
-<p align="center"><a><img src="./assets/Upload-image.jpg" width="200" height="350" margin-right="5"></a><a><img src="./assets/Image-Upload.jpg" width="200" height="350" margin-left="5" margin-right="5"></a><a><img src="./assets/Home-upload.jpg" width="200" height="350" margin-left="5" margin-right="5"></a><a><img src="./assets/Share.jpg" width="200" height="350" margin-left="5"></a></p>
+<p align="center"><a><img src="./assets/Login.jpg" width="200" height="350" margin-right="5"></a><a>&nbsp;&nbsp;&nbsp;</a><a><img src="./assets/SignUp.jpg" width="200" height="350" margin-left="5" margin-right="5"></a><a>&nbsp;&nbsp;&nbsp;</a><a><img src="./assets/Home.jpg" width="200" height="350" margin-left="5" margin-right="5"></a><a>&nbsp;&nbsp;&nbsp;</a><a><img src="./assets/Picture.jpg" width="200" height="350" margin-left="5"></a></p>
+<p align="center"><a><img src="./assets/Upload-image.jpg" width="200" height="350" margin-right="5"></a><a>&nbsp;&nbsp;&nbsp;</a><a><img src="./assets/Image-Upload.jpg" width="200" height="350" margin-left="5" margin-right="5"></a><a>&nbsp;&nbsp;&nbsp;</a><a><img src="./assets/Home-upload.jpg" width="200" height="350" margin-left="5" margin-right="5"></a><a>&nbsp;&nbsp;&nbsp;</a><a><img src="./assets/Share.jpg" width="200" height="350" margin-left="5"></a></p>
 
 ## Contributing
 

@@ -42,7 +42,7 @@ function UploadImageScreen({ navigation }) {
     }
 
  
-      const onSubmit = () => {
+      const onSubmit = async () => {
       getUserId();
 
       let base64Img = `data:${images.mime};base64,${images.data}`;
@@ -51,7 +51,7 @@ function UploadImageScreen({ navigation }) {
         "upload_preset": "imagestorage",
       }
   
-      fetch(CLOUDINARY_URL, {
+      await fetch(CLOUDINARY_URL, {
         body: JSON.stringify(data),
         headers: {
           'content-type': 'application/json'
@@ -62,30 +62,27 @@ function UploadImageScreen({ navigation }) {
         setPhoto(data);
       }).catch(err => console.log(err))
 
-      const name = `${photo.public_id}.${photo.format}`;      
-      console.log(name)
-      axios({
-        url: 'http://192.168.1.35:5000/graphql',
-        method: 'post',
-        data: {
-         query: 
-         `mutation{
-          uploadImage(imagename:"${name}",imageurl:"${photo.url}",userId:"${userId}"){
-           userId
-           imageurl
-           imagename
+        const name = `${photo.public_id}.${photo.format}`;      
+        console.log(name)
+        await axios({
+          url: 'http://192.168.1.35:5000/graphql',
+          method: 'post',
+          data: {
+           query: 
+           `mutation{
+            uploadImage(imagename:"${name}",imageurl:"${photo.url}",userId:"${userId}"){
+             userId
+             imageurl
+             imagename
+            }
+           }`
           }
-         }`
-        }
-       })
-        .then(res => {
-          //console.log(res.data.data.imageurl);
-           //setPhoto(photo.filter((photo) => photo.url !== res.data.data.imageurl))
-         //navigation.navigate('Home');
-        })
-        .catch(err => {
-         console.log(err.message);
-        });
+         })
+          .then(res => {
+          })
+          .catch(err => {
+           console.log(err.message);
+          });
 
     }
 

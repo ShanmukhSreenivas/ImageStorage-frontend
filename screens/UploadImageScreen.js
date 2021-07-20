@@ -23,7 +23,7 @@ function UploadImageScreen({ navigation }) {
         height: 400,
         cropping: true,
         includeBase64: true,
-        compressImageQuality: 0.8
+        compressImageQuality: 1
       }).then(image => {
         setImages(image);
       });
@@ -35,7 +35,7 @@ function UploadImageScreen({ navigation }) {
         height: 400,
         cropping: true,
         includeBase64: true,
-        compressImageQuality: 0.8
+        compressImageQuality: 1
       }).then(image => {
         setImages(image);
       });
@@ -131,11 +131,16 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   imageStyle: {
-    width: 250,
-    height: 250,
+    width: 350,
+    height: 350,
     margin: 5,
-    marginBottom: 40,
-    marginTop:70
+    marginBottom: 30,
+    borderRadius:2,
+    shadowColor:"#DCDCDC",
+    shadowOffset: {
+      width:3,
+      height:3
+    }
   },
   buttonContainer: {
     width: "60%",

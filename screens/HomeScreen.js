@@ -96,11 +96,11 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         marginBottom: 20,
         marginLeft:35
-        //overflow: "hidden",
       },
       image: {
-        width:300,
+        width:310,
         height:400,
+        borderRadius:1
       },
       detailsContainer: {
         padding: 20,

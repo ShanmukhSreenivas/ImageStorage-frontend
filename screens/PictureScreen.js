@@ -1,6 +1,5 @@
 import React from 'react';
 import {Image, View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from "react-native";
-import AppScreen from "../components/AppScreen";
 import Share from 'react-native-share';
 
 function PictureScreen({ route, navigation }) {
@@ -45,7 +44,7 @@ const styles = StyleSheet.create({
   window:{
     flex: 1,
     backgroundColor: "#fff",
-},
+  },
      container: {
         shadowColor: "#DCDCDC",
         shadowOffset: {

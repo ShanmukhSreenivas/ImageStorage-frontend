@@ -1,4 +1,4 @@
-import { Image, StyleSheet, TextInput, Button,  AsyncStorage, View, Text, SafeAreaView, TouchableOpacity } from 'react-native';
+import { StyleSheet, TextInput, AsyncStorage, Text, SafeAreaView, TouchableOpacity } from 'react-native';
 import React , {useState ,useEffect} from 'react'
 import axios from 'axios';
 import * as Constants from '../constants/constants' 

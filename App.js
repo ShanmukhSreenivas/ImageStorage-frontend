@@ -5,7 +5,6 @@ import HomeScreen from './screens/HomeScreen';
 import LoginScreen from "./screens/LoginScreen";
 import SignUpScreen from "./screens/SignUpScreen";
 import UploadImageScreen from "./screens/UploadImageScreen";
-//import UploadImageScreen from "./screens/UploadImage";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import PictureScreen from "./screens/PictureScreen";
 import 'react-native-gesture-handler';

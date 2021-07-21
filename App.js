@@ -22,28 +22,8 @@ function App() {
   })
   }
   
-/* const AuthNavigator = () => (
-  <Stack.Navigator>
-        <Stack.Screen name="Welcome" component={WelcomeScreen} options={{headerShown : false}}/>
-        <Stack.Screen name="Login" component={LoginScreen} options={{headerShown : false}}/>
-        <Stack.Screen name="SignUp" component={SignUpScreen} options={{headerShown : false}}/>
-  </Stack.Navigator>
-)
-
-const AppNavigator = () => (
-    <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="UploadImage" component={UploadImageScreen} />
-        <Stack.Screen name="Picture" component={PictureScreen} initialParams={{ imagename: "sample_image", imageurl: "./assets/borrowit-logo.png" }}/>
-    </Stack.Navigator>  
-)
- */
-
   return (
-/*       <NavigationContainer>
-        { (user === '') ? <AuthNavigator /> : <AppNavigator />}
-      </NavigationContainer>
- */   <NavigationContainer>
+   <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Welcome" component={WelcomeScreen} options={{headerShown : false}} />
         <Stack.Screen name="Login" component={LoginScreen} options={{headerShown : false}}/>
